@@ -9,7 +9,6 @@ Source0:	http://isdn4linux.org/~armin/divas/%{name}_%{version}.tar.bz2
 Patch0:		divactrl_2.1-dialog.diff
 Requires:	cdialog
 BuildRequires:	dos2unix
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
 The divactrl user utility for supported active ISDN cards
