@@ -3,6 +3,7 @@ Name:		divactrl
 Version:	2.1
 Release:	%mkrel 1
 Group:		System/Kernel and hardware
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License:	GPL
 URL:		http://isdn4linux.org/~armin/divas/
 Source0:	http://isdn4linux.org/~armin/divas/%{name}_%{version}.tar.bz2
