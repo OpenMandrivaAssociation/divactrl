@@ -1,7 +1,7 @@
 Summary:	A user utility for supported active ISDN cards from Eicon Networks
 Name:		divactrl
 Version:	2.1
-Release:	%mkrel 1
+Release:	%mkrel 3
 Group:		System/Kernel and hardware
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License:	GPL
