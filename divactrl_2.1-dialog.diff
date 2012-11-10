@@ -1,0 +1,59 @@
+diff -Naur divactrl_2.1/Makefile.in divactrl_2.1.oden/Makefile.in
+--- divactrl_2.1/Makefile.in	2004-05-08 17:42:52.000000000 +0200
++++ divactrl_2.1.oden/Makefile.in	2006-02-19 16:09:06.000000000 +0100
+@@ -92,7 +92,6 @@
+ 	$(INSTALL_PROGRAM) scripts/Config.dlg  $(DESTDIR)$(DATA_DIR)/Config.dlg
+ 	$(INSTALL_PROGRAM) scripts/Support  $(DESTDIR)$(DATA_DIR)/Support
+ 	$(INSTALL_PROGRAM) scripts/Trace  $(DESTDIR)$(DATA_DIR)/Trace
+-	$(INSTALL_PROGRAM) scripts/dialog  $(DESTDIR)$(DATA_DIR)/dialog
+ 	$(INSTALL_CFG) scripts/cfg_divas.sh $(DESTDIR)$(DATA_DIR)/cfg_divas.sh
+ 	$(INSTALL_CFG) scripts/divas_sys_info.sh $(DESTDIR)$(DATA_DIR)/divas_sys_info.sh
+ 	$(INSTALL_CFG) scripts/divas_stop.rc $(DESTDIR)$(DATA_DIR)/divas_stop.rc
+diff -Naur divactrl_2.1/scripts/Config divactrl_2.1.oden/scripts/Config
+--- divactrl_2.1/scripts/Config	2004-05-07 16:42:06.000000000 +0200
++++ divactrl_2.1.oden/scripts/Config	2006-02-19 16:06:52.000000000 +0100
+@@ -12,7 +12,7 @@
+ 
+ if [ -e ${diva_dir}/Config.dlg ]
+ then
+-  ${diva_dir}/dialog --infobox test 4 10 > /dev/null 2>&1
++  /usr/bin/dialog --infobox test 4 10 > /dev/null 2>&1
+ 	if [ $(($?)) -eq $((0)) ]
+ 	then
+ 		sh ${diva_dir}/test.sh ${diva_dir}/OK > /dev/null 2>&1
+diff -Naur divactrl_2.1/scripts/Config.dlg divactrl_2.1.oden/scripts/Config.dlg
+--- divactrl_2.1/scripts/Config.dlg	2004-05-09 13:48:56.000000000 +0200
++++ divactrl_2.1.oden/scripts/Config.dlg	2006-02-19 16:07:24.000000000 +0100
+@@ -51,7 +51,7 @@
+ #
+ # Always use own dialog utility
+ #
+-dialog="${diva_dir}dialog"
++dialog="/usr/bin/dialog"
+ help=""
+ hlp_base="${diva_dir}/help.txt"
+ hlp="${diva_dir}/cfg.hlp"
+diff -Naur divactrl_2.1/scripts/Support divactrl_2.1.oden/scripts/Support
+--- divactrl_2.1/scripts/Support	2004-05-08 17:42:52.000000000 +0200
++++ divactrl_2.1.oden/scripts/Support	2006-02-19 16:07:41.000000000 +0100
+@@ -5,7 +5,7 @@
+ diva_proc="/proc/net/eicon"
+ report="${diva_dir}/report.txt"
+ divactrl="/sbin/divactrl"
+-dialog="${diva_dir}/dialog"
++dialog="/usr/bin/dialog"
+ tmp=${diva_dir}/support.tmp
+ 
+ #------------------------------------------------------------
+diff -Naur divactrl_2.1/scripts/Trace divactrl_2.1.oden/scripts/Trace
+--- divactrl_2.1/scripts/Trace	2004-05-09 13:48:56.000000000 +0200
++++ divactrl_2.1.oden/scripts/Trace	2006-02-19 16:07:54.000000000 +0100
+@@ -2,7 +2,7 @@
+ 
+ opendiva=0
+ diva_dir="/usr/share/eicon"
+-dialog="${diva_dir}/dialog"
++dialog="/usr/bin/dialog"
+ diva_proc="/proc/net/eicon"
+ load_maint_drv="modprobe diva_mnt"
+ unload_maint_drv="rmmod diva_mnt"
